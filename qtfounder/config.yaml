@@ -3,6 +3,7 @@ model:
   default: mimo-v2.6-flash
   base_url: https://api.xiaomimimo.com/v1
   api_mode: chat_completions
+# 本地 backend 的 cwd 始终取启动目录；kanban 派活时由任务固定工作区，故不在此写路径。
 agent:
   max_turns: 150
 approvals:

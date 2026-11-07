@@ -2,7 +2,7 @@
 
 量潮创始人平台的 Hermes worker——以 profile 分发的形式存放。
 
-- 仓库：[quanttide/qtfounder](https://github.com/quanttide/qtfounder)，位于父仓 `quanttide-founder` 的 `apps/qtfounder`
+- 仓库：[quanttide/qtfounder](https://github.com/quanttide/qtfounder)，位于第二大脑根仓 `quanttide` 的 `defaults/quanttide-founder/apps/qtfounder`
 - 模型：小米 MiMo（provider `xiaomi`，`mimo-v2.6-flash`）
 
 ## 结构
@@ -16,8 +16,10 @@
 
 ## 安装
 
+在本仓 `data/profile` 下执行：
+
 ```bash
-hermes profile install ~/repos/quanttide/adapters/quanttide-hermes/data/profile/qtfounder
+hermes profile install ./qtfounder
 hermes -p qtfounder config env-path            # 把 XIAOMI_API_KEY 写进该 .env
 hermes -p qtfounder doctor
 ```

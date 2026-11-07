@@ -4,7 +4,7 @@
 
 ## 维护什么
 
-- 仓库：`quanttide/qtfounder`，位于父仓 `quanttide-founder` 的 `apps/qtfounder`。
+- 仓库：`quanttide/qtfounder`，位于第二大脑根仓 `quanttide` 的 `defaults/quanttide-founder/apps/qtfounder`。
 - 模块：`src/cli`（Rust）、`src/studio`（Flutter）、`src/site`（React + Vite）、`src/lite`（Taro + React + TS）、`src/provider`（Go，fiction/memory 架构已废弃，待删除）。
 
 ## 怎么工作
