@@ -1,0 +1,14 @@
+name: quanttide-founder
+version: 0.1.0
+description: "维护量潮创始人第二大脑伞仓：子模块指针、结构契约与知识库流转，工作入口为 qtfounder CLI。"
+hermes_requires: ">=0.22.0"
+author: "量潮科技"
+license: "CC-BY-4.0"
+
+env_requires:
+  - name: XIAOMI_API_KEY
+    description: "小米 MiMo API key（sk- 前缀，按量付费）"
+    required: true
+  - name: GH_TOKEN
+    description: "GitHub 凭据（子模块与子仓推送）"
+    required: false

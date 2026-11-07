@@ -1,0 +1,14 @@
+name: quanttide
+version: 0.1.0
+description: "维护量潮第二大脑根仓：范畴、领域、主体、适配四轴的子模块指针、统一结构与跨领域关联。"
+hermes_requires: ">=0.22.0"
+author: "量潮科技"
+license: "CC-BY-4.0"
+
+env_requires:
+  - name: XIAOMI_API_KEY
+    description: "小米 MiMo API key（sk- 前缀，按量付费）"
+    required: true
+  - name: GH_TOKEN
+    description: "GitHub 凭据（子模块与子仓推送）"
+    required: false
