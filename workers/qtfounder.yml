@@ -45,8 +45,10 @@ modules:
 
 config:
   model:
-    provider: deepseek
-    default: deepseek-flash
+    provider: xiaomi
+    default: mimo-v2.6-flash
+    base_url: https://api.xiaomimimo.com/v1
+    api_mode: chat_completions
   agent:
     max_turns: 150
   terminal:
@@ -64,8 +66,8 @@ conventions:
   verify: 按 modules 逐模块跑
 
 env_requires:
-  - name: DEEPSEEK_API_KEY
-    description: "DeepSeek API key"
+  - name: XIAOMI_API_KEY
+    description: "小米 MiMo API key（sk- 前缀，按量付费）"
     required: true
   - name: GH_TOKEN
     description: "GitHub 凭据（发布与 PR）"
