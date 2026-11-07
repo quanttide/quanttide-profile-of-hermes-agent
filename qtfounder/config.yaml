@@ -1,0 +1,9 @@
+model:
+  provider: xiaomi
+  default: mimo-v2.6-flash
+  base_url: https://api.xiaomimimo.com/v1
+  api_mode: chat_completions
+agent:
+  max_turns: 150
+approvals:
+  mode: smart

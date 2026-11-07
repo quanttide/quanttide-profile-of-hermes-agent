@@ -1,0 +1,14 @@
+name: qtfounder
+version: 0.1.0
+description: "维护 qtfounder 平台仓：Rust CLI、Flutter 工作台、React 官网、Taro 小程序；把协作规矩落成可执行的审计、契约与提交钩子。"
+hermes_requires: ">=0.22.0"
+author: "量潮科技"
+license: "Apache-2.0"
+
+env_requires:
+  - name: XIAOMI_API_KEY
+    description: "小米 MiMo API key（sk- 前缀，按量付费）"
+    required: true
+  - name: GH_TOKEN
+    description: "GitHub 凭据（发布与 PR）"
+    required: false

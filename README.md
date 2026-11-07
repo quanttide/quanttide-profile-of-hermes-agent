@@ -10,7 +10,7 @@
 
 | 路径 | 说明 |
 |:--|:--|
-| `workers/` | Hermes Worker 配置：一个项目仓库一份 YAML（见 [workers](workers/README.md)） |
+| `qtfounder/` | 量潮创始人平台 worker 的 profile 分发（见 [qtfounder](qtfounder/README.md)） |
 
 ## 许可
 
