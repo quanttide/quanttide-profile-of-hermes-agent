@@ -6,6 +6,12 @@
 
 待补充
 
+## 结构
+
+| 路径 | 说明 |
+|:--|:--|
+| `workers/` | Hermes Worker 配置：一个项目仓库一份 YAML（见 [workers](workers/README.md)） |
+
 ## 许可
 
 [CC BY 4.0](LICENSE)

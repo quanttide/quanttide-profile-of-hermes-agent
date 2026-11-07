@@ -1,0 +1,72 @@
+# Hermes Worker：量潮创始人平台（下级平台）
+name: qtfounder
+version: 0.1.0
+description: "维护 qtfounder 平台仓：Rust CLI、Flutter 工作台、React 官网、Taro 小程序；把协作规矩落成可执行的审计、契约与提交钩子。"
+hermes_requires: ">=0.22.0"
+author: "量潮科技"
+license: "Apache-2.0"
+
+project:
+  name: 量潮创始人平台
+  slug: qtfounder
+  description: "创始人第二大脑的规则化：CLI 审计与契约、提交钩子、随发 Skill。"
+  primary_path: ~/repos/quanttide-founder/apps/qtfounder
+  folders:
+    - ~/repos/quanttide-founder/apps/qtfounder
+  board: qtfounder
+
+repo:
+  url: https://github.com/quanttide/qtfounder
+  branch: main
+  role: platform          # 下级平台（quanttide-founder/apps/qtfounder）
+  visibility: public
+
+workspace:
+  kind: dir               # 常驻仓，完成后保留
+  path: ~/repos/quanttide-founder/apps/qtfounder
+
+modules:
+  - path: src/cli
+    tech: Rust
+    verify: cargo build && cargo test
+  - path: src/studio
+    tech: Flutter
+    verify: flutter analyze && flutter test
+  - path: src/site
+    tech: React + Vite
+    verify: npm run build
+  - path: src/lite
+    tech: Taro + React + TS
+    verify: npm run build
+  - path: src/provider
+    tech: Go
+    verify: go build ./... && go vet ./... && go test ./...
+    status: deprecated    # fiction/memory 架构已废弃，待删除
+
+config:
+  model:
+    provider: deepseek
+    default: deepseek-flash
+  agent:
+    max_turns: 150
+  terminal:
+    cwd: ~/repos/quanttide-founder/apps/qtfounder
+  approvals:
+    mode: smart
+
+conventions:
+  commit: auto-push
+  layering: module -> parent        # 模块内提交推送，再回 quanttide-founder 更新指针
+  commits: Conventional Commits
+  migration: 新能力默认不落本仓，先归 qtcloud-*；迁移动手前先定口径、只移动不改写
+  api_freeze: cli/v0.1.0 起五张脸冻结，破坏性变更 bump minor
+  docs: MyST Markdown，不用 emoji
+  verify: 按 modules 逐模块跑
+
+env_requires:
+  - name: DEEPSEEK_API_KEY
+    description: "DeepSeek API key"
+    required: true
+  - name: GH_TOKEN
+    description: "GitHub 凭据（发布与 PR）"
+    required: false

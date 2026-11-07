@@ -1,0 +1,52 @@
+# Hermes Worker：量潮创始人第二大脑（上级文件夹）
+name: quanttide-founder
+version: 0.1.0
+description: "维护量潮创始人第二大脑伞仓：Git 子模块架构、目录与指针更新、文档与版本契约；变更子模块逐层提交推送。"
+hermes_requires: ">=0.22.0"
+author: "量潮科技"
+
+project:
+  name: 量潮创始人第二大脑
+  slug: quanttide-founder
+  description: "Git 子模块架构的组织知识库，管理应用、资产、示例与文档子模块。"
+  primary_path: ~/repos/quanttide-founder
+  folders:
+    - ~/repos/quanttide-founder
+  board: quanttide-founder
+
+repo:
+  url: https://github.com/quanttide/quanttide-founder
+  branch: main
+  role: parent            # 上级文件夹：子模块伞仓
+  visibility: public
+
+workspace:
+  kind: dir               # 常驻仓，完成后保留
+  path: ~/repos/quanttide-founder
+
+config:
+  model:
+    provider: deepseek
+    default: deepseek-flash
+  agent:
+    max_turns: 150
+  terminal:
+    cwd: ~/repos/quanttide-founder
+  approvals:
+    mode: smart
+
+conventions:
+  commit: auto-push
+  layering: submodule -> parent     # 子模块内提交推送，再回父仓更新指针
+  submodule_policy: 只在子仓改内容，父仓只更新指针
+  version_contract: 结构类变更（目录迁移、重命名、归档规范变化）升 major 并在 CHANGELOG 写明迁移映射
+  hooks: qtfounder git hook install
+  verify: qtfounder git submodule check
+
+env_requires:
+  - name: DEEPSEEK_API_KEY
+    description: "DeepSeek API key"
+    required: true
+  - name: GH_TOKEN
+    description: "GitHub 凭据（子模块推送与发布）"
+    required: false
